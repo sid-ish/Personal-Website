@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sidharth R — Engineer, Artist, Maker. Digital art, photography, and thoughts from Chennai.">
+<title>i_wreck_things — Sidharth R</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔧</text></svg>">
+</head>
+<body>
+
+<!-- CURSORS -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" role="dialog" aria-modal="true">
+  <button class="lightbox-close" onclick="closeLightbox()">✕ Close</button>
+  <img id="lightbox-img" src="" alt="">
+  <div id="lightbox-caption"></div>
+</div>
+
+<!-- THOUGHT DETAIL PAGE -->
+<div id="thought-detail">
+  <div class="thought-detail-hero">
+    <button class="thought-back" onclick="closeThought()">← Back to Thoughts</button>
+    <div class="thought-detail-meta" id="td-meta"></div>
+    <h1 class="thought-detail-title" id="td-title"></h1>
+  </div>
+  <div class="thought-detail-content" id="td-body"></div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="main-content">
+
+  <!-- ── NAV ── -->
+  <nav id="site-nav" role="navigation">
+    <a href="#hero" class="nav-logo">
+      <span class="nav-logo-dot"></span>
+      i_wreck_things
+    </a>
+    <ul class="nav-links">
+      <li><a href="#art">Art</a></li>
+      <li><a href="#thoughts">Thoughts</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a href="https://www.instagram.com/i_wreck_things/" target="_blank" rel="noopener" class="nav-insta">@i_wreck_things ↗</a>
+  </nav>
+
+  <!-- ══════════════════ HERO ══════════════════ -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Chennai · 2026</div>
+
+      <h1 class="hero-headline">
+        Hello,
+        <span class="line-accent">I'm Sidharth.</span>
+        <span class="line-under">engineer · artist · maker</span>
+      </h1>
+
+      <p class="hero-intro">
+        I build robots, draw things, photograph the world, and break stuff creatively.
+        This is where all of it lives — the art, the half-baked thoughts, the projects.
+        Pull up a chair.
+      </p>
+
+      <div class="hero-cta-row">
+        <a href="#art" class="btn-primary"><span>See My Art →</span></a>
+        <a href="#thoughts" class="btn-ghost">Read My Thoughts</a>
+      </div>
+    </div>
+
+    <div class="hero-right" aria-hidden="true">
+      <div class="hero-art-grid">
+        <div class="hero-art-tile"><img src="images/digital/portrait-digital.png" alt="Digital Portrait" loading="eager"></div>
+        <div class="hero-art-tile"><img src="images/digital/cat-portrait.png" alt="Cat Portrait" loading="eager"></div>
+        <div class="hero-art-tile"><img src="images/traditional/ink-sketch.png" alt="Ink Sketch" loading="eager"></div>
+        <div class="hero-art-tile"><img src="images/digital/dc-fanart.png" alt="DC Fan Art" loading="eager"></div>
+        <div class="hero-art-tile"><img src="images/photography/rain-macro.png" alt="Rain Macro" loading="eager"></div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint" aria-hidden="true">Scroll</div>
+  </section>
+
+  <!-- ══════════════════ ART ══════════════════ -->
+  <section id="art" class="site-section alt-bg">
+    <div class="reveal">
+      <div class="section-kicker">The Work</div>
+      <h2 class="section-heading">Art &amp; <em>Photography</em></h2>
+      <p class="section-sub">
+        Digital illustration, traditional ink, and photography. Three different tools for the same obsession — noticing things.
+      </p>
+    </div>
+
+    <div class="reveal reveal-delay-1">
+      <div class="gallery-tabs">
+        <button class="gallery-tab active" data-tab="digital">
+          Digital Art <span class="img-count" style="font-size:0.6em; margin-left:0.4em; opacity:0.5;"></span>
+        </button>
+        <button class="gallery-tab" data-tab="traditional">Traditional Ink</button>
+        <button class="gallery-tab" data-tab="photography">Photography</button>
+      </div>
+    </div>
+
+    <!-- DIGITAL PANEL -->
+    <div class="gallery-panel active" id="panel-digital">
+      <div class="masonry-grid"></div>
+      <div class="add-note">
+        <strong>+ Add digital art:</strong> Drop files into <code>images/digital/</code> then add one line to the <code>catalogue.digital</code> array in <code>js/main.js</code>
+      </div>
+    </div>
+
+    <!-- TRADITIONAL PANEL -->
+    <div class="gallery-panel" id="panel-traditional">
+      <div class="grid-2"></div>
+      <div class="add-note">
+        <strong>+ Add traditional art:</strong> Drop files into <code>images/traditional/</code> then add one line to the <code>catalogue.traditional</code> array in <code>js/main.js</code>
+      </div>
+    </div>
+
+    <!-- PHOTOGRAPHY PANEL -->
+    <div class="gallery-panel" id="panel-photography">
+      <div class="masonry-grid" style="columns:2;"></div>
+      <div class="add-note">
+        <strong>+ Add photos:</strong> Drop files into <code>images/photography/</code> then add one line to the <code>catalogue.photography</code> array in <code>js/main.js</code>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ══════════════════ THOUGHTS ══════════════════ -->
+  <section id="thoughts" class="site-section">
+    <div class="reveal">
+      <div class="section-kicker">The Blog</div>
+      <h2 class="section-heading">Thoughts &amp; <em>Things</em></h2>
+      <p class="section-sub">
+        Where I write about what I'm building, what I'm noticing, and what's stuck in my head.
+        No schedule. Just when something's worth saying.
+      </p>
+    </div>
+
+    <div class="thoughts-grid reveal reveal-delay-1" id="thoughts-grid">
+      <!-- populated by JS -->
+    </div>
+
+    <div class="add-note reveal reveal-delay-2" style="margin-top:2.5rem;">
+      <strong>+ Write a new post:</strong> Create a <code>.txt</code> file in the <code>thoughts/</code> folder using this format:<br><br>
+      <code>title: My Post Title</code><br>
+      <code>date: April 2026</code><br>
+      <code>tag: Art</code><br>
+      <code>emoji: 🎨</code><br>
+      <code>excerpt: Short summary for the card.</code><br>
+      <code>---</code><br>
+      <code>Your full post text goes here. Blank lines = new paragraphs. ## for headings. > for quotes.</code><br><br>
+      Then add the filename to the <code>thoughtFiles</code> array in <code>js/main.js</code> — that's it.
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ══════════════════ ABOUT ══════════════════ -->
+  <section id="about" class="site-section alt-bg">
+    <div class="reveal">
+      <div class="section-kicker">The Person</div>
+      <h2 class="section-heading">Who I <em>Actually Am</em></h2>
+    </div>
+
+    <div class="personality-grid">
+      <div class="reveal reveal-delay-1">
+        <div class="personality-text">
+          <p>
+            I'm a second-year Mechanical Engineering student at <strong>SSN College of Engineering</strong> in Chennai.
+            The honest version: I'm someone who gets obsessed with making things real. If I can imagine it, I want it to exist.
+          </p>
+          <p>
+            During the week I'm building autonomous robots, writing embedded code, and figuring out how drones stay in the air.
+            On the weekends I'm drawing characters, taking photos of rain on leaves, or building something nobody asked for.
+          </p>
+          <p>
+            The name <em>i_wreck_things</em> started as a joke. Now it's accurate.
+            Breaking stuff is how you understand it.
+          </p>
+        </div>
+
+        <div class="personality-traits">
+          <div class="trait-item reveal reveal-delay-1">
+            <div class="trait-icon">⚙️</div>
+            <div class="trait-label">Builder</div>
+            <div class="trait-desc">Robots, drones, line-followers — if it moves, I want to make it.</div>
+          </div>
+          <div class="trait-item reveal reveal-delay-2">
+            <div class="trait-icon">✏️</div>
+            <div class="trait-label">Artist</div>
+            <div class="trait-desc">Digital illustration, ink sketches, and the occasional painting.</div>
+          </div>
+          <div class="trait-item reveal reveal-delay-2">
+            <div class="trait-icon">📷</div>
+            <div class="trait-label">Observer</div>
+            <div class="trait-desc">Photography as a tool for actually seeing the world around you.</div>
+          </div>
+          <div class="trait-item reveal reveal-delay-3">
+            <div class="trait-icon">🌏</div>
+            <div class="trait-label">Language nerd</div>
+            <div class="trait-desc">Tamil, English fluently. Japanese — I'm getting there (A2).</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-sidebar reveal reveal-delay-2">
+        <div class="sidebar-stat">
+          <div class="s-num">8.4</div>
+          <div class="s-label">CGPA · Dept. Rank 18</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="s-num">5+</div>
+          <div class="s-label">Projects built from scratch</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="s-num">3</div>
+          <div class="s-label">Creative disciplines</div>
+        </div>
+        <div class="sidebar-stat">
+          <div class="s-num">∞</div>
+          <div class="s-label">Things left to wreck</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════ CONTACT ══════════════════ -->
+  <section id="contact" class="site-section ink-bg">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="section-kicker">Get In Touch</div>
+        <p class="contact-manifesto">
+          Got a project?<br>
+          An idea?<br>
+          A robot that <em>needs building?</em>
+        </p>
+      </div>
+      <div class="reveal reveal-delay-1">
+        <div class="contact-links">
+          <a href="mailto:sidharth2410253@ssn.edu.in" class="contact-link">
+            <span>
+              <span class="contact-link-label">Email</span>
+              <span class="contact-link-val">sidharth2410253@ssn.edu.in</span>
+            </span>
+            <span style="margin-left:auto; opacity:0.4;">→</span>
+          </a>
+          <a href="tel:+919629043578" class="contact-link">
+            <span>
+              <span class="contact-link-label">Phone</span>
+              <span class="contact-link-val">+91 96290 43578</span>
+            </span>
+            <span style="margin-left:auto; opacity:0.4;">→</span>
+          </a>
+          <a href="https://www.instagram.com/i_wreck_things/" target="_blank" rel="noopener" class="contact-link">
+            <span>
+              <span class="contact-link-label">Instagram</span>
+              <span class="contact-link-val">@i_wreck_things</span>
+            </span>
+            <span style="margin-left:auto; opacity:0.4;">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Sidharth R — i_wreck_things.art</p>
+    <p>SSN College of Engineering · Chennai, India</p>
+  </footer>
+
+</div><!-- /main-content -->
+
+<script src="js/main.js"></script>
+</body>
+</html>
