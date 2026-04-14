@@ -1141,3 +1141,56 @@ body.dark-mode {
 @media (max-width: 960px) {
   .playground-grid { grid-template-columns: 1fr; }
 }
+
+html.dark-mode,
+body.dark-mode {
+  --cream:         #1a1612;
+  --cream2:        #22201b;
+  --cream3:        #2a2720;
+  --ink:           #f0ebe3;
+  --ink-soft:      #c8bfb0;
+  --muted:         #7a6e62;
+  --border:        rgba(240,235,227,0.1);
+  --border-strong: rgba(240,235,227,0.22);
+  color-scheme: dark;
+}
+ 
+/* Ensure canvas/game areas pick up the dark background */
+html.dark-mode .game-canvas,
+body.dark-mode .game-canvas {
+  background: var(--cream2);
+  border-color: var(--border);
+}
+ 
+/* Fix theme toggle button cursor (overridden by * { cursor: none }) */
+#theme-toggle {
+  cursor: none !important; /* keep custom cursor consistent */
+}
+ 
+/* Make the kbd-panel overlay work in dark mode */
+html.dark-mode .kbd-box,
+body.dark-mode .kbd-box {
+  background: var(--cream);
+  border-color: var(--border-strong);
+  color: var(--ink);
+}
+ 
+html.dark-mode .kbd-box h3,
+body.dark-mode .kbd-box h3 {
+  color: var(--ink);
+}
+ 
+html.dark-mode .kbd-key span,
+body.dark-mode .kbd-key span {
+  background: var(--cream2);
+  border-color: var(--border-strong);
+  color: var(--ink);
+}
+ 
+/* Visitor strip in dark mode */
+html.dark-mode .visitor-strip,
+body.dark-mode .visitor-strip {
+  background: var(--cream2);
+  border-color: var(--border);
+}
+ 
