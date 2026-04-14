@@ -270,6 +270,95 @@
     </div>
   </section>
 
+
+  <!-- ══════════════════ PLAYGROUND ══════════════════ -->
+  <section id="playground" class="site-section">
+    <div class="reveal">
+      <div class="section-kicker">The Fun Zone</div>
+      <h2 class="section-heading">Play<em>ground</em></h2>
+      <p class="section-sub">
+        Tiny games, right here in the browser. No downloads, no installs. Just pick one and waste some time productively.
+      </p>
+    </div>
+
+    <div class="playground-grid reveal reveal-delay-1">
+
+      <!-- SNAKE -->
+      <div class="game-card" id="game-snake">
+        <div class="game-card-header">
+          <div class="game-icon">🐍</div>
+          <div>
+            <div class="game-title">Snake</div>
+            <div class="game-desc">Classic. Eat. Grow. Don't die.</div>
+          </div>
+          <div class="game-badge">Arrow Keys</div>
+        </div>
+        <canvas class="game-canvas" id="snake-canvas" width="300" height="220"></canvas>
+        <div class="game-controls">
+          <button class="game-btn" id="snake-start">Start Game</button>
+          <span class="game-score-label">Score: <span id="snake-score">0</span></span>
+        </div>
+      </div>
+
+      <!-- MEMORY MATCH -->
+      <div class="game-card" id="game-memory">
+        <div class="game-card-header">
+          <div class="game-icon">🃏</div>
+          <div>
+            <div class="game-title">Memory Match</div>
+            <div class="game-desc">Flip cards. Find pairs. Beat the clock.</div>
+          </div>
+          <div class="game-badge">Click</div>
+        </div>
+        <div class="memory-grid" id="memory-grid"></div>
+        <div class="game-controls">
+          <button class="game-btn" id="memory-restart">New Game</button>
+          <span class="game-score-label">Moves: <span id="memory-moves">0</span></span>
+        </div>
+      </div>
+
+      <!-- REACTION TIME -->
+      <div class="game-card" id="game-reaction">
+        <div class="game-card-header">
+          <div class="game-icon">⚡</div>
+          <div>
+            <div class="game-title">Reaction Time</div>
+            <div class="game-desc">Wait for green. Then smash it.</div>
+          </div>
+          <div class="game-badge">Click / Space</div>
+        </div>
+        <div class="reaction-box" id="reaction-box">
+          <div class="reaction-text" id="reaction-text">Click to Start</div>
+        </div>
+        <div class="game-controls">
+          <span class="game-score-label">Best: <span id="reaction-best">—</span> ms</span>
+          <span class="game-score-label">Last: <span id="reaction-last">—</span> ms</span>
+        </div>
+      </div>
+
+      <!-- TYPE RACER -->
+      <div class="game-card" id="game-typer">
+        <div class="game-card-header">
+          <div class="game-icon">⌨️</div>
+          <div>
+            <div class="game-title">Type Racer</div>
+            <div class="game-desc">How fast can you actually type?</div>
+          </div>
+          <div class="game-badge">Keyboard</div>
+        </div>
+        <div class="typer-display" id="typer-display"></div>
+        <input class="typer-input" id="typer-input" placeholder="Start typing above sentence..." autocomplete="off" spellcheck="false">
+        <div class="game-controls">
+          <button class="game-btn" id="typer-restart">New Sentence</button>
+          <span class="game-score-label"><span id="typer-wpm">—</span> WPM</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
   <!-- FOOTER -->
   <footer>
     <p>© 2026 Sidharth R — i_wreck_things.art</p>
@@ -279,5 +368,6 @@
 </div><!-- /main-content -->
 
 <script src="js/main.js"></script>
+<script src="js/extras.js"></script>
 </body>
 </html>
