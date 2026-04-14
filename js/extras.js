@@ -1,3 +1,5 @@
+'use strict';
+
 /* ══════════════════════════════════════════════
    1. LOADING ANIMATION
    ══════════════════════════════════════════════ */
@@ -63,15 +65,16 @@
     btn.textContent = '☀';
   }
  
-  btn.addEventListener('click', toggleTheme);
- 
-  window.toggleTheme = function () {
-    const isDark = document.body.classList.toggle('dark-mode');
-    document.documentElement.classList.toggle('dark-mode', isDark); // FIX: keep in sync
-    btn.textContent = isDark ? '☀' : '☽';
-    try { localStorage.setItem('iwr-theme', isDark ? 'dark' : 'light'); } catch (e) { /* blocked */ }
-    showToast(isDark ? '🌙 Dark mode on' : '☀ Light mode on');
-  };
+
+window.toggleTheme = function () {
+  const isDark = document.body.classList.toggle('dark-mode');
+  document.documentElement.classList.toggle('dark-mode', isDark);
+  btn.textContent = isDark ? '☀' : '☽';
+  try {
+      localStorage.setItem('iwr-theme', isDark ? 'dark' : 'light');
+  } catch (e) {}
+  showToast(isDark ? '🌙 Dark mode on' : '☀ Light mode on');
+};
 })();
  
  
